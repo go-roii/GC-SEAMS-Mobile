@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register to GC-SEAMS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Full name</ion-label>
+    <ion-input placeholder="First name"></ion-input>
+    <ion-input placeholder="Middle name"></ion-input>
+    <ion-input placeholder="Last name"></ion-input>
+  </ion-item>
+
+  <ion-list>  
+    <ion-item>
+      <ion-label>Department</ion-label>
+      <ion-select placeholder="Select department">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Course</ion-label>
+      <ion-select placeholder="Select course">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="stacked">GC Domain Email</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Confirm Password</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-button expand="block">Register</ion-button>
+</ion-content>
