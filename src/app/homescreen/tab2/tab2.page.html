@@ -21,8 +21,8 @@
   </ion-row>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="qr-code" [routerLink]="['/homescreen/scan-qr']"></ion-icon>
+    <ion-fab-button (click)="presentModal()">
+      <ion-icon name="qr-code"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

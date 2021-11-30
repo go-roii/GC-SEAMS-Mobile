@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ScanQrPage } from './scan-qr.page';
+import { ScanQrModalPage } from './scan-qr-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ScanQrPage
+    component: ScanQrModalPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ScanQrPageRoutingModule {}
+export class ScanQrModalPageRoutingModule {}

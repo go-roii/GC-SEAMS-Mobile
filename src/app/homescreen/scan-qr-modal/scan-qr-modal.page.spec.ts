@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ScanQrPage } from './scan-qr.page';
+import { ScanQrModalPage } from './scan-qr-modal.page';
 
-describe('ScanQrPage', () => {
-  let component: ScanQrPage;
-  let fixture: ComponentFixture<ScanQrPage>;
+describe('ScanQrModalPage', () => {
+  let component: ScanQrModalPage;
+  let fixture: ComponentFixture<ScanQrModalPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScanQrPage ],
+      declarations: [ ScanQrModalPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ScanQrPage);
+    fixture = TestBed.createComponent(ScanQrModalPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

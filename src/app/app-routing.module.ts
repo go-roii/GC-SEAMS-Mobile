@@ -15,8 +15,8 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'homescreen/scan-qr',
-    loadChildren: () => import('./homescreen/scan-qr/scan-qr.module').then( m => m.ScanQrPageModule)
+    path: 'scan-qr-modal',
+    loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)
   }
 ];
 @NgModule({
