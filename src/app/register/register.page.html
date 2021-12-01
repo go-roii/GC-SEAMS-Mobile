@@ -7,46 +7,44 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [formGroup]="profileForm">
   <ion-item>
     <ion-label position="stacked">Full name</ion-label>
-    <ion-input placeholder="First name"></ion-input>
-    <ion-input placeholder="Middle name"></ion-input>
-    <ion-input placeholder="Last name"></ion-input>
+    <ion-input placeholder="First name" formControlName="firstName"></ion-input>
+    <ion-input placeholder="Middle name" formControlName="middleName"></ion-input>
+    <ion-input placeholder="Last name" formControlName="lastName"></ion-input>
   </ion-item>
 
-  <ion-list>  
+  <ion-list>
     <ion-item>
       <ion-label>Department</ion-label>
-      <ion-select placeholder="Select department">
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="m">Male</ion-select-option>
+      <ion-select placeholder="Select department" formControlName="department" (ionChange)="departmentSelectionChanged()">
+        <ion-select-option *ngFor="let department of departments" value='{{department.department_id}}' >{{department.department_code}}</ion-select-option>
       </ion-select>
     </ion-item>
-  
+
     <ion-item>
       <ion-label>Course</ion-label>
-      <ion-select placeholder="Select course">
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="m">Male</ion-select-option>
+      <ion-select placeholder="Select course" formControlName="course">
+        <ion-select-option *ngFor="let course of courses" value="{{course.course_id}}">{{course.course_code}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
 
   <ion-item>
     <ion-label position="stacked">GC Domain Email</ion-label>
-    <ion-input></ion-input>
+    <ion-input formControlName="email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Password</ion-label>
-    <ion-input></ion-input>
+    <ion-input formControlName="password"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Confirm Password</ion-label>
-    <ion-input></ion-input>
+    <ion-input formControlName="passwordConfirmation"></ion-input>
   </ion-item>
 
-  <ion-button expand="block">Register</ion-button>
+  <ion-button expand="block" [disabled]="profileForm.invalid" (click)="register()">Register</ion-button>
 </ion-content>

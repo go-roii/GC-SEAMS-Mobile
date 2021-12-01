@@ -4,17 +4,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [formGroup]='credentialsForm'>
   <ion-item>
     <ion-label position="stacked">GC Domain Email</ion-label>
-    <ion-input [(ngModel)]="credential.email_address"></ion-input>
+    <ion-input formControlName="email" required></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="stacked">Password</ion-label>
-    <ion-input [(ngModel)]="credential.password"></ion-input>
+    <ion-input formControlName="password" required></ion-input>
   </ion-item>
 
-  <ion-button expand="block"  (click)='login()'>Login</ion-button>
+  <ion-button expand="block" [disabled]="credentialsForm.invalid" (click)='login()' [routerLink]="['homescreen']">Login</ion-button>
   <ion-button expand="block" [routerLink]="['register']">Register</ion-button>
 </ion-content>

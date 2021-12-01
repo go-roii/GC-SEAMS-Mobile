@@ -1,11 +1,14 @@
 /* eslint-disable */
 import { Component, OnInit } from '@angular/core';
 
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Credentials } from '../models/Credentials';
 import { RequestParams } from '../models/RequestParams';
 import { DataService } from '../services/data.service';
 import { UserService } from '../services/user.service';
 import {UserProfile} from "../models/UserProfile";
+import {DepartmentService} from "../services/departments.service";
+import {SpeakersService} from "../services/speakers.service";
 
 
 @Component({
@@ -15,7 +18,6 @@ import {UserProfile} from "../models/UserProfile";
 })
 export class LoginComponent implements OnInit {
   private headers!: string[];
-  private credential!: Credentials;
 
   constructor(private userService: UserService,
               public dataService: DataService,
@@ -25,20 +27,25 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  credentialsForm = new FormGroup({
+    email: new FormControl('roygopezlopez@gordoncollege.edu.ph', [Validators.required, Validators.email]),
+    password: new FormControl('roylangsakalam', [Validators.required]),
+  });
+
   //getters for the fields' validation
   get email() {
-    return this.credential.email_address;
+    return this.credentialsForm.get('email');
   }
 
   get password() {
-    return this.credential.password;
+    return this.credentialsForm.get('password');
   }
 
   public login(): void {
 
     const credentials: Credentials = {
-      email_address: this.credential.email_address,
-      password: this.credential.password
+      email_address: this.credentialsForm.controls['email'].value,
+      password: this.credentialsForm.controls['password'].value
     }
 
     const loginParams = new RequestParams();
