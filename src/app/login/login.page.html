@@ -7,14 +7,14 @@
 <ion-content>
   <ion-item>
     <ion-label position="stacked">GC Domain Email</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label position="stacked">Password</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="credential.email_address"></ion-input>
   </ion-item>
 
-  <ion-button expand="block" [routerLink]="['homescreen']">Login</ion-button>
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input [(ngModel)]="credential.password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block"  (click)='login()'>Login</ion-button>
   <ion-button expand="block" [routerLink]="['register']">Register</ion-button>
 </ion-content>
