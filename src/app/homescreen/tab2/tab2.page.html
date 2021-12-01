@@ -16,9 +16,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-row style="height: 100%; display:flex; justify-content:center; align-content:center;">
+  <!-- <ion-row style="height: 100%; display:flex; justify-content:center; align-content:center;">
     <h3 style="color: rgba(0, 0, 0, 0.3);">There is no registered event yet...</h3>
-  </ion-row>
+  </ion-row> -->
+
+  <ion-item [routerLink]="['event-details']">
+    <ion-label>
+      <h2 style="display: inline-block; margin-bottom: -5px">Introduction to Programming</h2>
+      <p style="float: right;">October 5, 2021</p>
+      <h3>
+        Computer programming is the process of designing and writing computer programs.
+      </h3>
+      <p>12:00 PM - 2:00 PM</p>
+    </ion-label>
+  </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="presentModal()">
