@@ -12,7 +12,7 @@
 
   <ion-item>
     <ion-label position="stacked">Password</ion-label>
-    <ion-input formControlName="password" required></ion-input>
+    <ion-input type="password" formControlName="password" required></ion-input>
   </ion-item>
 
   <ion-button expand="block" [disabled]="credentialsForm.invalid" (click)='login()' [routerLink]="['homescreen/tab2']">Login</ion-button>
