@@ -15,7 +15,7 @@ import {RequestParams} from "../../models/RequestParams";
 })
 export class Tab1Page implements OnInit{
 
-  invitations: Invitation[]=[];
+  public invitations: Invitation[]=[];
 
   constructor(public modalController: ModalController, private dataService: DataService, private userService: UserService) {}
 
@@ -26,7 +26,6 @@ export class Tab1Page implements OnInit{
     });
 
     return await modal.present();
-
   }
 
   getHttpOptions(){
@@ -56,6 +55,34 @@ export class Tab1Page implements OnInit{
 
   setInvitations(data: Invitation[]){
     this.invitations=data;
+  }
+
+  getEventDate(invitation: Invitation){
+    const zonedStartDateTimeArr=invitation.event_start_date.split('[');
+    const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
+
+    // const zonedEndDateTimeArr=invitation.event_start_date.split('[');
+    // const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+    return new Date(zonedStartDateTimeString);
+  }
+
+  getEventStartTime(invitation: Invitation){
+    const zonedStartDateTimeArr=invitation.event_start_date.split('[');
+    const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
+
+    // const zonedEndDateTimeArr=invitation.event_start_date.split('[');
+    // const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+    return new Date(zonedStartDateTimeString);
+  }
+
+  getEventEndTime(invitation: Invitation){
+
+    const zonedEndDateTimeArr=invitation.event_start_date.split('[');
+    const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+    return new Date(zonedEndDateTimeString);
   }
 
   ngOnInit(): void {
