@@ -9,6 +9,7 @@ export interface Invitation{
   event_description: string;
   event_start_date: string;
   event_end_date: string;
+  seminar_hours: number;
   registration_link: string;
   departments: Departments[];
   facilitator: Facilitator;

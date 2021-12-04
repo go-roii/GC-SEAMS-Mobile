@@ -79,7 +79,7 @@ export class Tab1Page implements OnInit{
 
   getEventEndTime(invitation: Invitation){
 
-    const zonedEndDateTimeArr=invitation.event_start_date.split('[');
+    const zonedEndDateTimeArr=invitation.event_end_date.split('[');
     const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
 
     return new Date(zonedEndDateTimeString);
