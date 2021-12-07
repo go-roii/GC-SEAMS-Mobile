@@ -8,6 +8,10 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+	<ion-thumbnail id="event-poster">
+		<img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+	</ion-thumbnail>
+
 	<ion-text color="primary">
 		<h5>Event Title</h5>
 	</ion-text>
@@ -38,6 +42,8 @@
 		<h5>Speaker/s</h5>
 	</ion-text>
 	<p>abc</p>
-
-	<ion-button expand="block" [routerLink]="[]">Register</ion-button>
 </ion-content>
+
+<ion-footer translucent="true" class="ion-no-border ion-padding">
+	<ion-button expand="block" [routerLink]="[]">Register</ion-button>
+</ion-footer>
