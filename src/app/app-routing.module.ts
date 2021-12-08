@@ -17,15 +17,15 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/tabs/tabs.module').then(m => m.TabsPageModule),
   },
   {
-      path: 'homescreen/tab1/event-details',
+      path: 'homescreen/tab1/event-details/:uuid',
       loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
-    path: 'homescreen/tab2/event-details',
+    path: 'homescreen/tab2/event-details/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
-    path: 'homescreen/tab3/event-details',
+    path: 'homescreen/tab3/event-details:/uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)
   },
   {
-    path: 'event-details',
+    path: 'event-details/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then( m => m.EventDetailsPageModule)
   }
 

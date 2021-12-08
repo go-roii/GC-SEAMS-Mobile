@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content fullscreen="true" class="ion-padding" >
 	<ion-thumbnail id="event-poster">
 		<img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
 	</ion-thumbnail>
@@ -15,33 +15,35 @@
 	<ion-text color="primary">
 		<h5>Event Title</h5>
 	</ion-text>
-	<p>abc</p>
+	<p >{{event.event_title}}</p>
 
 	<ion-text color="primary">
 		<h5>Event Details</h5>
 	</ion-text>
-	<p>abc</p>
+	<p>{{event.event_description}}</p>
 
 	<ion-text color="primary">
 		<h5>Date</h5>
 	</ion-text>
-	<p>abc</p>
+	<p>{{getEventDate(event) | date}}</p>
 
 	<ion-text color="primary">
 		<h5>Time</h5>
 	</ion-text>
-	<p>abc</p>
+	<p>{{getEventStartTime(event) | date:'h:mm a'}} - {{getEventEndTime(event) | date:'h:mm a'}}</p>
 
 	<ion-text color="primary">
 		<h5>Seminar Hours</h5>
 	</ion-text>
-	<p>10</p>
-	
+	<p>{{event.seminar_hours}} hours</p>
 
 	<ion-text color="primary">
 		<h5>Speaker/s</h5>
 	</ion-text>
-	<p>abc</p>
+  <ng-container *ngFor="let speaker of event.speakers">
+    <p >{{speaker.speaker_id}}</p>
+  </ng-container>
+
 </ion-content>
 
 <ion-footer translucent="true" class="ion-no-border ion-padding">

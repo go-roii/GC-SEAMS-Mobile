@@ -1,6 +1,7 @@
 /* eslint-disable */
 import {Departments} from "./Departments";
 import {Facilitator} from "./Facilitator";
+import {Speaker} from "./Speaker";
 
 export interface Invitation{
   event_id: number;
@@ -12,6 +13,7 @@ export interface Invitation{
   seminar_hours: number;
   registration_link: string;
   departments: Departments[];
+  speakers: Speaker[];
   facilitator: Facilitator;
 }
 
