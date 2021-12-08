@@ -1,9 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar [style.--background]="'#00000000'">
+    <!-- <ion-buttons slot="start">
       <ion-button color="dark" (click)="dismiss()">
           <ion-icon name="arrow-back"></ion-icon>
       </ion-button>
+    </ion-buttons> -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <!-- <ion-title>scan-qr-modal</ion-title> -->
   </ion-toolbar>
