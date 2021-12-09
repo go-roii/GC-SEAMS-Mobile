@@ -15,12 +15,12 @@
 	<ion-text color="primary">
 		<h5>Event Title</h5>
 	</ion-text>
-	<p >{{event.event_title}}</p>
+	<p >{{event?.event_title}}</p>
 
 	<ion-text color="primary">
 		<h5>Event Details</h5>
 	</ion-text>
-	<p>{{event.event_description}}</p>
+	<p>{{event?.event_description}}</p>
 
 	<ion-text color="primary">
 		<h5>Date</h5>
@@ -35,13 +35,13 @@
 	<ion-text color="primary">
 		<h5>Seminar Hours</h5>
 	</ion-text>
-	<p>{{event.seminar_hours}} hours</p>
+	<p>{{event?.seminar_hours}} hours</p>
 
 	<ion-text color="primary">
 		<h5>Speaker/s</h5>
 	</ion-text>
   <ng-container *ngFor="let speaker of event.speakers">
-    <p >{{speaker.speaker_name}}</p>
+    <p >{{speaker?.speaker_name}}</p>
   </ng-container>
 
 </ion-content>

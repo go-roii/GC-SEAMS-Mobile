@@ -30,6 +30,7 @@ export class EventDetailsPage implements OnInit {
     });
     console.log(this.uuid);
 
+    this.addViewCount(this.uuid);
     this.getEventDetails(this.uuid);
   }
 
@@ -77,6 +78,29 @@ export class EventDetailsPage implements OnInit {
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });
+
+  }
+
+  addViewCount(uuid: string){
+
+    const body = {
+      event_uuid: uuid
+    }
+
+    const viewParams=new RequestParams();
+    viewParams.EndPoint='analytics/views';
+    viewParams.requestType=4;
+    viewParams.body=body;
+    viewParams.authToken=this.getHttpOptions();
+
+    this.dataService.httprequest(viewParams)
+      .subscribe(async (data: string) => {
+        await console.log(data);
+        await alert("view count submitted");
+      }, (er: HttpErrorResponse) => {
+        this.dataService.handleError(er);
+      });
+
 
   }
 
