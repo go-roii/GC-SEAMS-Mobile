@@ -5,7 +5,7 @@ import {Invitation} from "../../models/Invitation";
 import {ActivatedRoute} from "@angular/router";
 import {DataService} from "../../services/data.service";
 import {UserService} from "../../services/user.service";
-import {HttpHeaders} from "@angular/common/http";
+import {HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {RequestParams} from "../../models/RequestParams";
 
 @Component({
@@ -54,8 +54,30 @@ export class EventDetailsPage implements OnInit {
     this.dataService.httprequest(eventDetailsParams)
       .subscribe(async (data: Invitation) =>{
         await this.setActiveEvent(data);
-        await console.log(data)
+        await console.log(data);
       });
+  }
+
+  submitRegistration(uuid: string){
+
+    const body = {
+      event_uuid: uuid
+    }
+
+    const registrationParams=new RequestParams();
+    registrationParams.EndPoint='events/register';
+    registrationParams.requestType=4;
+    registrationParams.body=body;
+    registrationParams.authToken=this.getHttpOptions();
+
+    this.dataService.httprequest(registrationParams)
+      .subscribe(async (data: string) => {
+        await console.log(data);
+        await alert("Registration submitted");
+      }, (er: HttpErrorResponse) => {
+        this.dataService.handleError(er);
+      });
+
   }
 
   getEventDate(invitation: Invitation){

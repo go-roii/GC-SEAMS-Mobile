@@ -41,11 +41,11 @@
 		<h5>Speaker/s</h5>
 	</ion-text>
   <ng-container *ngFor="let speaker of event.speakers">
-    <p >{{speaker.speaker_id}}</p>
+    <p >{{speaker.speaker_name}}</p>
   </ng-container>
 
 </ion-content>
 
 <ion-footer translucent="true" class="ion-no-border ion-padding">
-	<ion-button expand="block" [routerLink]="[]">Register</ion-button>
+	<ion-button expand="block" [routerLink]="[]" (click)="submitRegistration(this.uuid)">Register</ion-button>
 </ion-footer>
