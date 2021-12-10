@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Invitation} from "../../models/Invitation";
 import {ActivatedRoute} from "@angular/router";
@@ -13,7 +13,7 @@ import {RequestParams} from "../../models/RequestParams";
   templateUrl: './event-details.page.html',
   styleUrls: ['./event-details.page.scss'],
 })
-export class EventDetailsPage implements OnInit {
+export class EventDetailsPage implements OnInit, AfterViewInit {
 
   private activeEventUUID: Subscription;
   uuid!: string;
@@ -24,13 +24,16 @@ export class EventDetailsPage implements OnInit {
               private userService: UserService) {
   }
 
+  ngAfterViewInit(): void {
+    this.addViewCount(this.uuid);
+    }
+
   ngOnInit(): void {
     this.activeEventUUID = this.route.params.subscribe(params => {
       this.uuid = params['uuid'];
     });
     console.log(this.uuid);
 
-    this.addViewCount(this.uuid);
     this.getEventDetails(this.uuid);
   }
 
@@ -83,6 +86,7 @@ export class EventDetailsPage implements OnInit {
 
   addViewCount(uuid: string){
 
+    console.log('viewed uuid: '+uuid);
     const body = {
       event_uuid: uuid
     }
