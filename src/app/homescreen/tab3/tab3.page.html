@@ -16,47 +16,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item [routerLink]="['event-details']">
-    <ion-label>
-      <h2 style="display: inline-block; margin-bottom: -5px">BSCS Programming</h2>
-      <p style="float: right;">October 2, 2021</p>
-      <h3>
-        - C <br>
-        - Java
-      </h3>
-      <p>6:00 PM - 12:00 AM</p>
-    </ion-label>
-  </ion-item>
+  <!-- <ion-row style="height: 100%; display:flex; justify-content:center; align-content:center;">
+    <h3 style="color: rgba(0, 0, 0, 0.3);">There is no registered event yet...</h3>
+  </ion-row> -->
 
   <ion-item [routerLink]="['event-details']">
     <ion-label>
-      <h2 style="display: inline-block; margin-bottom: -5px">Lorem Ipsum</h2>
-      <p style="float: right;">October 3, 2021</p>
+      <h2 style="display: inline-block; margin-bottom: -5px">Introduction to Programming</h2>
+      <p style="float: right;">October 5, 2021</p>
       <h3>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        Computer programming is the process of designing and writing computer programs.
       </h3>
-      <p>12:00 PM - 2:00 PM</p>
+      <p>12:00 PM - 2:00 PM &nbsp;●&nbsp; 10 hr</p>
     </ion-label>
   </ion-item>
 
-  <ion-item [routerLink]="['event-details']">
-    <ion-label>
-      <h2 style="display: inline-block; margin-bottom: -5px">Lorem Ipsum</h2>
-      <p style="float: right;">October 1 - October 3, 2021</p>
-      <h3>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      </h3>
-      <p>3:00 PM - 6:00 PM</p>
-    </ion-label>
-  </ion-item>
-
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <!-- <ion-fab-button (click)="presentModal()">
+      <ion-icon name="qr-code"></ion-icon>
+    </ion-fab-button> -->
+    <ion-fab-button [routerLink]="['/scan-qr']">
+      <ion-icon name="qr-code"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
-
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <!-- <ion-fab-button (click)="presentModal()">
-    <ion-icon name="qr-code"></ion-icon>
-  </ion-fab-button> -->
-  <ion-fab-button [routerLink]="['/scan-qr']">
-    <ion-icon name="qr-code"></ion-icon>
-  </ion-fab-button>
-</ion-fab>

@@ -17,8 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/tabs/tabs.module').then(m => m.TabsPageModule),
   },
   {
-      path: 'homescreen/tab1/event-details/:uuid',
-      loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+    path: 'homescreen/tab1/event-details/:uuid',
+    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
     path: 'homescreen/tab2/event-details/:uuid',
@@ -29,13 +29,17 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
+    path: 'homescreen/tab4/event-details:/uuid',
+    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+  },
+  {
     path: 'scan-qr',
     loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)
   },
-  {
-    path: 'event-details/:uuid',
-    loadChildren: () => import('./homescreen/event-details/event-details.module').then( m => m.EventDetailsPageModule)
-  }
+  // {
+  //   path: 'event-details/:uuid',
+  //   loadChildren: () => import('./homescreen/event-details/event-details.module').then( m => m.EventDetailsPageModule)
+  // }
 
 ];
 @NgModule({
