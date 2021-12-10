@@ -104,36 +104,44 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });
-
-
   }
 
   getEventDate(invitation: Invitation){
-    const zonedStartDateTimeArr=invitation.event_start_date.split('[');
-    const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
+    try{
+      const zonedStartDateTimeArr=invitation.event_start_date.split('[');
+      const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
+      return new Date(zonedStartDateTimeString);
+    }catch (e){
 
-    // const zonedEndDateTimeArr=invitation.event_start_date.split('[');
-    // const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
-
-    return new Date(zonedStartDateTimeString);
+    }
   }
 
   getEventStartTime(invitation: Invitation){
-    const zonedStartDateTimeArr=invitation.event_start_date.split('[');
-    const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
 
-    // const zonedEndDateTimeArr=invitation.event_start_date.split('[');
-    // const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+    try{
+      const zonedStartDateTimeArr=invitation.event_start_date.split('[');
+      const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
 
-    return new Date(zonedStartDateTimeString);
+      return new Date(zonedStartDateTimeString);
+    }catch (e){
+
+    }
+
   }
 
   getEventEndTime(invitation: Invitation){
 
-    const zonedEndDateTimeArr=invitation.event_end_date.split('[');
-    const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+    try{
 
-    return new Date(zonedEndDateTimeString);
+      const zonedEndDateTimeArr=invitation.event_end_date.split('[');
+      const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+      return new Date(zonedEndDateTimeString);
+
+    }catch (e) {
+
+    }
+
   }
 
   setActiveEvent(data: Invitation){
