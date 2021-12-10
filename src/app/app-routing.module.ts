@@ -36,6 +36,11 @@ const routes: Routes = [
     path: 'scan-qr',
     loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)
   },
+  {
+    path: 'homescreen/profile',
+    loadChildren: () => import('./homescreen/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
   // {
   //   path: 'event-details/:uuid',
   //   loadChildren: () => import('./homescreen/event-details/event-details.module').then( m => m.EventDetailsPageModule)
