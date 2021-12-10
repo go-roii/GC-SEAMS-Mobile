@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/homescreen/profile']">
+        <ion-icon size="large" name="ellipse" style="color: var(--ion-color-primary);"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">GC-SEAMS</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment (ionSelect)="segmentChanged($event)" value="Invited">
+      <ion-segment-button [attr.value]="name"
+        *ngFor="let name of ['Invited', 'Registered', 'Attended']" (ionSelect)="segmentChosen(name)">
+        <ion-label>{{name}}</ion-label>
+      </ion-segment-button>
+      <!-- <ion-segment-button value="registered" (ionSelect)="segmentChosen(name)">
+        <ion-label>Registered</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="attended" (ionSelect)="segmentChosen(name)">
+        <ion-label>Attended</ion-label>
+      </ion-segment-button> -->
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-slides (ionSlideDidChange)="slideChanged()" [options]="slideOpts">
+    <ion-slide>
+      <app-invited></app-invited>
+    </ion-slide>
+    <ion-slide>
+      <app-registered></app-registered>
+    </ion-slide>
+    <ion-slide>
+      <app-attended></app-attended>
+    </ion-slide>
+  </ion-slides> -->
+
+  <app-invited *ngIf="selectedSegment === 'Invited'"></app-invited>
+  <app-registered *ngIf="selectedSegment === 'Registered'"></app-registered>
+  <app-attended *ngIf="selectedSegment === 'Attended'"></app-attended>
+</ion-content>

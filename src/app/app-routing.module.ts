@@ -12,10 +12,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule),
   },
-  {
-    path: 'homescreen',
-    loadChildren: () => import('./homescreen/tabs/tabs.module').then(m => m.TabsPageModule),
-  },
+  // {
+  //   path: 'homescreen',
+  //   loadChildren: () => import('./homescreen/tabs/tabs.module').then(m => m.TabsPageModule),
+  // },
   {
     path: 'homescreen/tab1/event-details/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
@@ -25,13 +25,27 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
-    path: 'homescreen/tab3/event-details:/uuid',
+    path: 'homescreen/tab3/event-details/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
   {
-    path: 'homescreen/tab4/event-details:/uuid',
+    path: 'homescreen/tab4/event-details/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
+
+
+
+  {
+    path: 'homescreen',
+    loadChildren: () => import('./homescreen/tabs2/tabs2.module').then(m => m.Tabs2PageModule),
+  },
+  {
+    path: 'homescreen/my-events/event-details/:uuid',
+    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+  },
+
+
+  
   {
     path: 'scan-qr',
     loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)

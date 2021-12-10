@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/homescreen/profile']">
+        <ion-icon size="large" name="ellipse" style="color: var(--ion-color-primary);"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title class="ion-text-center">GC-SEAMS</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment (ionSelect)="segmentChanged($event)" value="Ongoing">
+      <ion-segment-button [attr.value]="name"
+        *ngFor="let name of ['Ongoing', 'Upcoming', 'Past']" (ionSelect)="segmentChosen(name)">
+        <ion-label>{{name}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-ongoing *ngIf="selectedSegment === 'Ongoing'"></app-ongoing>
+  <app-upcoming *ngIf="selectedSegment === 'Upcoming'"></app-upcoming>
+  <app-past *ngIf="selectedSegment === 'Past'"></app-past>
+</ion-content>
