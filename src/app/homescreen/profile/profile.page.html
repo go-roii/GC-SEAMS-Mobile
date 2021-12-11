@@ -13,13 +13,16 @@
       <ion-label>Full Name</ion-label>
     </ion-list-header>
     <ion-item>
-      <ion-input placeholder="First name"></ion-input>
+      <ion-label position="floating">First name</ion-label>
+      <ion-input></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Middle name" ></ion-input>
+      <ion-label position="floating">Middle name</ion-label>
+      <ion-input></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Last name"></ion-input>
+      <ion-label position="floating">Name name</ion-label>
+      <ion-input></ion-input>
     </ion-item>
   </ion-list>
 
@@ -40,17 +43,19 @@
   </ion-list>
 
   <ion-item>
-    <ion-label position="stacked">GC Domain Email</ion-label>
+    <ion-label position="floating">GC Domain Email</ion-label>
     <ion-input></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Password</ion-label>
+    <ion-label type="password" position="floating">Password</ion-label>
     <ion-input></ion-input>
   </ion-item>
 
   <ion-item class="ion-margin-bottom">
-    <ion-label position="stacked">Confirm Password</ion-label>
+    <ion-label type="password" position="floating">Confirm Password</ion-label>
     <ion-input></ion-input>
   </ion-item>
+
+  <ion-button expand="block">Update Profile</ion-button>
 </ion-content>

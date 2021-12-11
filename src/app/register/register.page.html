@@ -13,14 +13,18 @@
     <ion-list-header lines="full">
       <ion-label>Full Name</ion-label>
     </ion-list-header>
+    
     <ion-item>
-      <ion-input placeholder="First name" formControlName="firstName"></ion-input>
+      <ion-label position="floating">First name</ion-label>
+      <ion-input formControlName="firstName"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Middle name" formControlName="middleName"></ion-input>
+      <ion-label position="floating">Middle name</ion-label>
+      <ion-input formControlName="middleName"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Last name" formControlName="lastName"></ion-input>
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input formControlName="lastName"></ion-input>
     </ion-item>
   </ion-list>
 
@@ -41,18 +45,18 @@
   </ion-list>
 
   <ion-item>
-    <ion-label position="stacked">GC Domain Email</ion-label>
+    <ion-label position="floating">GC Domain Email</ion-label>
     <ion-input formControlName="email"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label position="stacked">Password</ion-label>
-    <ion-input formControlName="password"></ion-input>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
   </ion-item>
 
   <ion-item class="ion-margin-bottom">
-    <ion-label position="stacked">Confirm Password</ion-label>
-    <ion-input formControlName="passwordConfirmation"></ion-input>
+    <ion-label position="floating">Confirm Password</ion-label>
+    <ion-input type="password" formControlName="passwordConfirmation"></ion-input>
   </ion-item>
 
   <ion-button expand="block" [disabled]="profileForm.invalid" (click)="register()">Register</ion-button>
