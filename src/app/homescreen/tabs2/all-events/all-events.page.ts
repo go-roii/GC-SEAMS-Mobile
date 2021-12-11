@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllEventsPage implements OnInit {
 
+  showSearchBar: boolean = false;
   selectedSegment: string = 'Upcoming';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleSearchBar() {
+    this.showSearchBar = !this.showSearchBar;
   }
 
   segmentChanged(event) {

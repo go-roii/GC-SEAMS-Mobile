@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar [style.display]="showSearchBar ? 'none' : 'block'">
     <ion-buttons slot="start">
       <ion-button [routerLink]="['/homescreen/profile']">
         <ion-icon size="large" name="ellipse" style="color: var(--ion-color-primary);"></ion-icon>
@@ -9,10 +9,14 @@
     <ion-title class="ion-text-center">GC-SEAMS</ion-title>
 
     <ion-buttons slot="primary">
-      <ion-button>
+      <ion-button (click)="toggleSearchBar()">
         <ion-icon name="search"></ion-icon>
       </ion-button>
     </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-toolbar [style.display]="showSearchBar ? 'block' : 'none'">
+    <ion-searchbar showCancelButton="always" (ionCancel)="toggleSearchBar()"></ion-searchbar>
   </ion-toolbar>
 
   <ion-toolbar>

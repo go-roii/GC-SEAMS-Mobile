@@ -11,12 +11,17 @@ export class MyEventsPage implements OnInit {
   //   initialSlide: 1,
   //   speed: 400,
   // };
-  
+
+  showSearchBar: boolean = false;
   selectedSegment: string = 'Invited';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleSearchBar() {
+    this.showSearchBar = !this.showSearchBar;
   }
 
   segmentChanged(event) {
