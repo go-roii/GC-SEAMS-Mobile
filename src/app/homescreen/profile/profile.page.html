@@ -7,6 +7,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header lines="full">
+      <ion-label>Full Name</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-input placeholder="First name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Middle name" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Last name"></ion-input>
+    </ion-item>
+  </ion-list>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>Department</ion-label>
+      <ion-select placeholder="Select department">
+        <ion-select-option></ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ion-margin-bottom">
+      <ion-label>Course</ion-label>
+      <ion-select placeholder="Select course">
+        <ion-select-option></ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="stacked">GC Domain Email</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Password</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-margin-bottom">
+    <ion-label position="stacked">Confirm Password</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
 </ion-content>
