@@ -40,7 +40,7 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/tabs2/tabs2.module').then(m => m.Tabs2PageModule),
   },
   {
-    path: 'homescreen/my-events/event-details/:uuid',
+    path: 'homescreen/my-events/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
   },
 
