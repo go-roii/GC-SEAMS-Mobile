@@ -53,7 +53,11 @@ const routes: Routes = [
   {
     path: 'homescreen/profile',
     loadChildren: () => import('./homescreen/profile/profile.module').then( m => m.ProfilePageModule)
+  },  {
+    path: 'alternative-code',
+    loadChildren: () => import('./homescreen/alternative-code/alternative-code.module').then( m => m.AlternativeCodePageModule)
   },
+
 
   // {
   //   path: 'event-details/:uuid',
