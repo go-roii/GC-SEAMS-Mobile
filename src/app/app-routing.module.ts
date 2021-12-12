@@ -16,22 +16,22 @@ const routes: Routes = [
   //   path: 'homescreen',
   //   loadChildren: () => import('./homescreen/tabs/tabs.module').then(m => m.TabsPageModule),
   // },
-  {
-    path: 'homescreen/tab1/event-details/:uuid',
-    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
-  },
-  {
-    path: 'homescreen/tab2/event-details/:uuid',
-    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
-  },
-  {
-    path: 'homescreen/tab3/event-details/:uuid',
-    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
-  },
-  {
-    path: 'homescreen/tab4/event-details/:uuid',
-    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
-  },
+  // {
+  //   path: 'homescreen/tab1/event-details/:uuid',
+  //   loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+  // },
+  // {
+  //   path: 'homescreen/tab2/event-details/:uuid',
+  //   loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+  // },
+  // {
+  //   path: 'homescreen/tab3/event-details/:uuid',
+  //   loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+  // },
+  // {
+  //   path: 'homescreen/tab4/event-details/:uuid',
+  //   loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+  // },
 
 
 
