@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AllEventsPage implements OnInit {
 
   showSearchBar: boolean = false;
-  selectedSegment: string = 'Upcoming';
+  selectedSegment: string = 'Ongoing';
 
   constructor() { }
 
