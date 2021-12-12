@@ -51,12 +51,14 @@ const routes: Routes = [
     loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)
   },
   {
-    path: 'homescreen/profile',
-    loadChildren: () => import('./homescreen/profile/profile.module').then( m => m.ProfilePageModule)
-  },  {
+    path: 'homescreen/settings',
+    loadChildren: () => import('./homescreen/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
     path: 'alternative-code',
     loadChildren: () => import('./homescreen/alternative-code/alternative-code.module').then( m => m.AlternativeCodePageModule)
   },
+
 
 
   // {
