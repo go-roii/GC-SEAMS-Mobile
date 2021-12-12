@@ -1,3 +1,7 @@
+<ion-refresher slot="fixed">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
 <ion-list>
   <ion-item *ngFor="let invitation of invitations" [routerLink]="['event-details', invitation.event_uuid]">
     <ion-label>
