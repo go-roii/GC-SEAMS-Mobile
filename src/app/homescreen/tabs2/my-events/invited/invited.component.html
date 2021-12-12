@@ -1,10 +1,12 @@
-<ion-item *ngFor="let invitation of invitations" [routerLink]="['event-details', invitation.event_uuid]">
-  <ion-label>
-    <h2 style="display: inline-block; margin-bottom: -5px">{{invitation.event_title}}</h2>
-    <p style="float: right;">{{getEventDate(invitation) | date}}</p>
-    <h3>
-      {{invitation.event_description}}
-    </h3>
-    <p>{{getEventStartTime(invitation) | date:'h:mm a'}} - {{getEventEndTime(invitation) | date:'h:mm a'}} &nbsp;●&nbsp; 10 hours</p>
-  </ion-label> 
-</ion-item> 
+<ion-list>
+  <ion-item *ngFor="let invitation of invitations" [routerLink]="['event-details', invitation.event_uuid]">
+    <ion-label>
+      <h2 style="display: inline-block; margin-bottom: -5px">{{invitation.event_title}}</h2>
+      <p style="float: right;">{{getEventDate(invitation) | date}}</p>
+      <h3>
+        {{invitation.event_description}}
+      </h3>
+      <p>{{getEventStartTime(invitation) | date:'h:mm a'}} - {{getEventEndTime(invitation) | date:'h:mm a'}} &nbsp;●&nbsp; 10 seminar hr</p>
+    </ion-label> 
+  </ion-item> 
+</ion-list>
