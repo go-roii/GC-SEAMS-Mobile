@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';

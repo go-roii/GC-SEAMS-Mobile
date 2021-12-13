@@ -3,14 +3,14 @@
 </ion-refresher>
 
 <ion-list>
-  <ion-item [routerLink]="['event-details']">
+  <ion-item *ngFor="let event of events" [routerLink]="[event.event_uuid]">
     <ion-label>
-      <h2 style="display: inline-block; margin-bottom: -5px">Introduction to Programming</h2>
-      <p style="float: right;">December 20, 2021</p>
+      <h2 style="display: inline-block; margin-bottom: -5px">{{event.event_title}}</h2>
+      <p style="float: right;">{{getEventDate(event) | date}}</p>
       <h3>
-        Computer programming is the process of designing and writing computer programs.
+        {{event.event_description}}
       </h3>
-      <p>12:00 PM - 2:00 PM &nbsp;●&nbsp; 10 seminar hr</p>
+      <p>{{getEventStartTime(event) | date:'h:mm a'}} - {{getEventEndTime(event) | date:'h:mm a'}} &nbsp;●&nbsp; {{event.seminar_hours}} seminar hr</p>
     </ion-label>
   </ion-item>
 </ion-list>
