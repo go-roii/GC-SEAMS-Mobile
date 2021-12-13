@@ -38,25 +38,23 @@ const routes: Routes = [
   {
     path: 'homescreen',
     loadChildren: () => import('./homescreen/tabs2/tabs2.module').then(m => m.Tabs2PageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'homescreen/my-events/:uuid',
-    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule)
+    loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule),
   },
-
-
-  
   {
     path: 'scan-qr',
-    loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule)
+    loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule),
   },
   {
     path: 'homescreen/settings',
-    loadChildren: () => import('./homescreen/settings/settings.module').then( m => m.SettingsPageModule)
+    loadChildren: () => import('./homescreen/settings/settings.module').then( m => m.SettingsPageModule),
   },
   {
     path: 'alternative-code',
-    loadChildren: () => import('./homescreen/alternative-code/alternative-code.module').then( m => m.AlternativeCodePageModule)
+    loadChildren: () => import('./homescreen/alternative-code/alternative-code.module').then( m => m.AlternativeCodePageModule),
   },
 
 

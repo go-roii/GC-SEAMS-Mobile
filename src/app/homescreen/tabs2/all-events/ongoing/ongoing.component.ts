@@ -5,6 +5,8 @@ import {UserService} from "../../../../services/user.service";
 import {DataService} from "../../../../services/data.service";
 import {HttpHeaders} from "@angular/common/http";
 import {RequestParams} from "../../../../models/RequestParams";
+import {Invitation} from "../../../../models/Invitation";
+import {EventsToAdd} from "../../../../models/Event";
 
 @Component({
   selector: 'app-ongoing',
@@ -13,7 +15,7 @@ import {RequestParams} from "../../../../models/RequestParams";
 })
 export class OngoingComponent implements OnInit {
 
-  events: Event[]=[];
+  events: EventsToAdd[]=[];
 
   constructor(public modalController: ModalController,
               private userService: UserService,
@@ -38,14 +40,42 @@ export class OngoingComponent implements OnInit {
     eventsParams.authToken=this.getHttpOptions();
 
     this.dataService.httprequest(eventsParams)
-      .subscribe(async (data: Event[]) =>{
+      .subscribe(async (data: EventsToAdd[]) =>{
         await this.setEvents(data);
         await console.log(this.events)
       });
   }
 
-  setEvents(data: Event[]){
+  setEvents(data: EventsToAdd[]){
     this.events=data;
+  }
+
+  getEventDate(data: EventsToAdd){
+    const zonedStartDateTimeArr=data.event_start_date.split('[');
+    const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
+
+    // const zonedEndDateTimeArr=invitation.event_start_date.split('[');
+    // const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+    return new Date(zonedStartDateTimeString);
+  }
+
+  getEventStartTime(data: EventsToAdd){
+    const zonedStartDateTimeArr=data.event_start_date.split('[');
+    const zonedStartDateTimeString=zonedStartDateTimeArr[0].toString();
+
+    // const zonedEndDateTimeArr=invitation.event_start_date.split('[');
+    // const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+    return new Date(zonedStartDateTimeString);
+  }
+
+  getEventEndTime(data: EventsToAdd){
+
+    const zonedEndDateTimeArr=data.event_end_date.split('[');
+    const zonedEndDateTimeString=zonedEndDateTimeArr[0].toString();
+
+    return new Date(zonedEndDateTimeString);
   }
 
   ngOnInit(): void {
