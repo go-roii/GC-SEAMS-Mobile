@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   credentialsForm = new FormGroup({
-    email: new FormControl('roygopezlopez@gordoncollege.edu.ph', [Validators.required, Validators.email]),
-    password: new FormControl('roylangsakalam', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
   });
 
   //getters for the fields' validation
@@ -87,7 +87,6 @@ export class LoginComponent implements OnInit {
 
           this.userService.start();
           this.userService.setLoginState();
-
         },
         er => {
           this.dataService.handleError(er)

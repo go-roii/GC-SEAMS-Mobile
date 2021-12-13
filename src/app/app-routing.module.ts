@@ -47,18 +47,22 @@ const routes: Routes = [
   {
     path: 'homescreen/all-events/:uuid',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'scan-qr',
     loadChildren: () => import('./homescreen/scan-qr-modal/scan-qr-modal.module').then( m => m.ScanQrModalPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'homescreen/settings',
     loadChildren: () => import('./homescreen/settings/settings.module').then( m => m.SettingsPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'alternative-code',
     loadChildren: () => import('./homescreen/alternative-code/alternative-code.module').then( m => m.AlternativeCodePageModule),
+    canLoad: [AuthGuard]
   },
 
 

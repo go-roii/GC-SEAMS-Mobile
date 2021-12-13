@@ -7,6 +7,7 @@ import { RequestParams } from '../models/RequestParams';
 import { UserProfile } from '../models/UserProfile';
 import { DataService } from '../services/data.service';
 import {catchError} from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterPage implements OnInit {
   departments: Departments[]=[];
 
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.getDepartments();
@@ -97,8 +98,8 @@ export class RegisterPage implements OnInit {
       this.dataService.httprequest(registrationParams).subscribe( async (res: any)=>{
         catchError(this.dataService.handleError);
         const data = await res.payload;
-        //await this.user.setUserData(data)
-        //await this.user.setLoginState()
+        await this.router.navigateByUrl('');
+        await alert("Registration successful");
       });
     }else{
       alert('Passwords does not match');

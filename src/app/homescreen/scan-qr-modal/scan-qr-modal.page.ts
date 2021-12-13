@@ -35,7 +35,6 @@ export class ScanQrModalPage implements OnInit{
 
               const qrDetail = JSON.parse(text);
               this.passAttendance(qrDetail);
-              alert('Attendance Submitted.');
 
               this.qrScanner.hide(); // hide camera preview
               scanSub.unsubscribe(); // stop scanning

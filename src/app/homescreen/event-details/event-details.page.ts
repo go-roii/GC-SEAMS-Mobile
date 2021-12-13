@@ -100,7 +100,7 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
     this.dataService.httprequest(viewParams)
       .subscribe(async (data: string) => {
         await console.log(data);
-        await alert("view count submitted");
+        //await alert("view count submitted");
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });
