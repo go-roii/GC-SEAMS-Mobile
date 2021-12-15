@@ -67,13 +67,13 @@ export class DataService {
   }
 
   public handleError(error: HttpErrorResponse) {
-    if (error.status === 404) {
+    if (error.status === 404){
       // A client-side or network error occurred. Handle it accordingly.
-      alert('User not found.');
+      alert(error.error);
     }else if(error.status === 401){
-      alert('Password is incorrect');
+      alert(error.error);
     }else if(error.status === 400){
-      alert('Something went wrong with the server');
+      alert(error.error);
     }
     else {
       // The backend returned an unsuccessful response code.
