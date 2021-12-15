@@ -86,6 +86,7 @@ export class ScanQrModalPage implements OnInit{
         await this.router.navigateByUrl('my-events');
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
+        this.router.navigateByUrl('my-events');
       });
   }
 
