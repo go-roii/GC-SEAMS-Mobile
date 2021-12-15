@@ -8,7 +8,6 @@ import {UserService} from "../../services/user.service";
 import {DataService} from "../../services/data.service";
 import {Router} from "@angular/router";
 
-
 @Component({
   selector: 'app-scan-qr-modal',
   templateUrl: './scan-qr-modal.page.html',
@@ -42,7 +41,6 @@ export class ScanQrModalPage implements OnInit{
               scanSub.unsubscribe(); // stop scanning
               //this.scanningOnProgress=false;
             });
-
           });
 
         } else if (status.denied) {
@@ -52,7 +50,7 @@ export class ScanQrModalPage implements OnInit{
           // then they can grant the permission from there
         } else {
           // permission was denied, but not permanently. You can ask for permission again at a later time.
-          alert('Permission denied')
+          this.dataService.presentAlert("Access denied, please try again later.")
         }
       })
       .catch((e: any) => alert('Error: ' + e));

@@ -7,14 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" [formGroup]='attendanceForm'>
   <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
     <ion-text class="ion-padding">
       <h1>Type in the alternative code for your attendance</h1>
     </ion-text>
 
     <ion-item class="ion-margin-bottom">
-      <ion-input required></ion-input>
+      <ion-input formControlName="attendance_code" required></ion-input>
     </ion-item>
 
     <ion-button expand="block" [routerLink]="['register']">Submit</ion-button>

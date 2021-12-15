@@ -7,6 +7,7 @@ import {DataService} from "../../services/data.service";
 import {UserService} from "../../services/user.service";
 import {HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {RequestParams} from "../../models/RequestParams";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-event-details',
@@ -21,7 +22,8 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
 
   constructor(private route: ActivatedRoute,
               private dataService: DataService,
-              private userService: UserService) {
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngAfterViewInit(): void {
@@ -77,11 +79,11 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
     this.dataService.httprequest(registrationParams)
       .subscribe(async (data: string) => {
         await console.log(data);
-        await alert("Registration submitted");
+        await this.dataService.presentSuccessAlert('Registration Submitted');
+        await this.router.navigateByUrl('')
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });
-
   }
 
   addViewCount(uuid: string){
