@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    
+
     <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -23,6 +23,6 @@
 
 <ion-footer class="ion-no-border" translucent="true">
   <ion-toolbar class="ion-padding">
-    <ion-button expand="block" [routerLink]="['/']">Logout</ion-button>
+    <ion-button expand="block" (click)="logout()" [routerLink]="['/']">Logout</ion-button>
   </ion-toolbar>
 </ion-footer>

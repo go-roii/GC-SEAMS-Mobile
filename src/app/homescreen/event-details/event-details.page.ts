@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Invitation} from "../../models/Invitation";
 import {ActivatedRoute} from "@angular/router";
@@ -19,6 +19,7 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
   private activeEventUUID: Subscription;
   uuid!: string;
   public event: Invitation;
+  disableRegistration: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private dataService: DataService,
@@ -27,7 +28,8 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.addViewCount(this.uuid);
+
+
     }
 
   ngOnInit(): void {
@@ -37,6 +39,11 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
     console.log(this.uuid);
 
     this.getEventDetails(this.uuid);
+    this.setAllowRegistration();
+
+    if(!(this.disableRegistration==true)){
+      this.addViewCount(this.uuid);
+    }
   }
 
   getHttpOptions(){
@@ -49,6 +56,14 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
       })
     };
     return httpOptions;
+  }
+
+  setAllowRegistration(){
+    this.activeEventUUID = this.route.params.subscribe(params => {
+      if(params['disableRegistration']=='true'){
+        this.disableRegistration=true;
+      }
+    });
   }
 
   getEventDetails(uuid: string){
@@ -80,7 +95,7 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
       .subscribe(async (data: string) => {
         await console.log(data);
         await this.dataService.presentSuccessAlert('Registration Submitted');
-        await this.router.navigateByUrl('')
+        await this.router.navigateByUrl('my-events');
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });

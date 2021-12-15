@@ -41,11 +41,11 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   {
-    path: 'homescreen/my-events/:uuid',
+    path: 'homescreen/my-events/:uuid/:disableRegistration',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule),
   },
   {
-    path: 'homescreen/all-events/:uuid',
+    path: 'homescreen/all-events/:uuid/:disableRegistration',
     loadChildren: () => import('./homescreen/event-details/event-details.module').then(m => m.EventDetailsPageModule),
     canLoad: [AuthGuard]
   },

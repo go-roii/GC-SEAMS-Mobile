@@ -61,7 +61,7 @@ export class UserService{
   logOut(){
     this.stopTimer();
     sessionStorage.clear();
-    this.router.navigateByUrl('');
+    //this.router.navigateByUrl('');
     this.speakersService.IsLoaded=false;
     this.departmentService.isLoaded=false;
   }

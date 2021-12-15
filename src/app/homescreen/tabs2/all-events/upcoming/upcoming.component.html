@@ -3,7 +3,7 @@
 </ion-refresher>
 
 <ion-list>
-  <ion-item *ngFor="let event of events" [routerLink]="[event.event_uuid]">
+  <ion-item *ngFor="let event of events" [routerLink]="[event.event_uuid, 'false']">
     <ion-label>
       <h2 style="display: inline-block; margin-bottom: -5px">{{event.event_title}}</h2>
       <p style="float: right;">{{getEventDate(event) | date}}</p>

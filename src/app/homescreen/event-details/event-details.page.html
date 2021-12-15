@@ -47,5 +47,5 @@
 </ion-content>
 
 <ion-footer translucent="true" class="ion-no-border ion-padding">
-	<ion-button expand="block" [routerLink]="[]" (click)="submitRegistration(this.uuid)">Register</ion-button>
+	<ion-button [hidden]="disableRegistration" expand="block" [routerLink]="[]" (click)="submitRegistration(this.uuid)">Register</ion-button>
 </ion-footer>
