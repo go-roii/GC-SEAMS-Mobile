@@ -4,6 +4,7 @@ import { RequestParams } from '../models/RequestParams';
 import {Observable, throwError} from 'rxjs';
 import {RefreshTokens} from '../models/RefreshTokens';
 import {retry} from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +13,7 @@ export class DataService {
 
   public baseURL = 'https://seams-backend.herokuapp.com/api/v1/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public alertController: AlertController) {}
 
   getConfigResponse(endpoint: string, body: Credential): Observable<HttpResponse<RefreshTokens>> {
 
@@ -66,14 +67,42 @@ export class DataService {
     return result;
   }
 
+  async presentSuccessAlert(msg: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Success!',
+      message: msg,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
+  async presentAlert(msg: string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Error!',
+      message: msg,
+      buttons: ['OK']
+    });
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
   public handleError(error: HttpErrorResponse) {
     if (error.status === 404){
-      // A client-side or network error occurred. Handle it accordingly.
-      alert(error.error);
+      this.presentAlert(error.error.message);
     }else if(error.status === 401){
-      alert(error.error);
+      this.presentAlert(error.error.message);
     }else if(error.status === 400){
-      alert(error.error);
+      this.presentAlert(error.error.message);
+    }else if(error.status === 403){
+      this.presentAlert(error.error.message);
     }
     else {
       // The backend returned an unsuccessful response code.

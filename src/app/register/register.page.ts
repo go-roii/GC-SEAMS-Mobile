@@ -97,12 +97,11 @@ export class RegisterPage implements OnInit {
 
       this.dataService.httprequest(registrationParams).subscribe( async (res: any)=>{
         catchError(this.dataService.handleError);
-        const data = await res.payload;
         await this.router.navigateByUrl('');
-        await alert("Registration successful");
+        await this.dataService.presentSuccessAlert('Registration successful.')
       });
     }else{
-      alert('Passwords does not match');
+      this.dataService.presentAlert('Passwords does not match')
     }
   }
 }

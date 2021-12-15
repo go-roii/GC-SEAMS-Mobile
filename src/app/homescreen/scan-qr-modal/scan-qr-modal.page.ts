@@ -6,6 +6,7 @@ import {RequestParams} from "../../models/RequestParams";
 import {HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {UserService} from "../../services/user.service";
 import {DataService} from "../../services/data.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ScanQrModalPage implements OnInit{
   constructor(public modalController: ModalController,
               private qrScanner: QRScanner,
               private userService: UserService,
-              private dataService: DataService) { }
+              private dataService: DataService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -80,7 +82,8 @@ export class ScanQrModalPage implements OnInit{
     this.dataService.httprequest(attendanceParams)
       .subscribe(async (data: string) => {
         await console.log(data);
-        await alert("You have successfully submitted your attendance.");
+        await this.dataService.presentSuccessAlert('Attendance Submitted');
+        await this.router.navigateByUrl('my-events');
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });
