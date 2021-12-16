@@ -53,18 +53,6 @@ export class LoginComponent implements OnInit {
     loginParams.Body = credentials;
     loginParams.RequestType = 3;
 
-    console.log(loginParams)
-    const user: UserProfile = {
-      email_address: "gcseams@gordoncollege.edu.ph",
-      password: "roy_idol_nakin",
-      first_name: "GC",
-      middle_name: "",
-      last_name: "SEAMS",
-      course_id: 1
-    }
-
-    this.userService.setActiveUser(user);
-
     this.dataService.getConfigResponse(loginParams.EndPoint, loginParams.body)
       // resp is of type `HttpResponse<RefreshTokens>`
       .subscribe(resp => {

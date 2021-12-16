@@ -129,5 +129,4 @@ export class Tabs2Page implements OnInit {
       .subscribe((data: UserProfile) => this.userService.setActiveUser(data));
   }
 
-
 }
