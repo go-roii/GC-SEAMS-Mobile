@@ -7,22 +7,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" [formGroup]='profileForm'>
   <ion-list>
     <ion-list-header lines="full">
       <ion-label>Student Details</ion-label>
     </ion-list-header>
     <ion-item>
       <ion-label position="floating">First name</ion-label>
-      <ion-input value="Mark"></ion-input>
+      <ion-input formControlName="firstName"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Middle name</ion-label>
-      <ion-input value="Jason"></ion-input>
+      <ion-input formControlName="middleName"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Name name</ion-label>
-      <ion-input value="Margallo"></ion-input>
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input formControlName="lastName"></ion-input>
     </ion-item>
   </ion-list>
 
@@ -44,17 +44,17 @@
 
   <ion-item>
     <ion-label position="floating">GC Domain Email</ion-label>
-    <ion-input value="202100001@gordoncollege.edu.ph"></ion-input>
+    <ion-input formControlName="email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input formControlName="password"></ion-input>
   </ion-item>
 
   <ion-item class="ion-margin-bottom">
     <ion-label position="floating">Confirm Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input formControlName="passwordConfirmation"></ion-input>
   </ion-item>
 
   <ion-button expand="block">Update Profile</ion-button>
