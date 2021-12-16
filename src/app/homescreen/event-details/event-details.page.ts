@@ -8,6 +8,7 @@ import {UserService} from "../../services/user.service";
 import {HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {RequestParams} from "../../models/RequestParams";
 import {Router} from "@angular/router";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-event-details',
@@ -21,11 +22,12 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
   public event: Invitation;
   disableRegistration: boolean = false;
 
-  constructor(private route: ActivatedRoute,
-              private dataService: DataService,
-              private userService: UserService,
-              private router: Router) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private dataService: DataService,
+    private userService: UserService,
+    private router: Router) { }
 
   ngAfterViewInit(): void {
 
@@ -95,7 +97,7 @@ export class EventDetailsPage implements OnInit, AfterViewInit {
       .subscribe(async (data: string) => {
         await console.log(data);
         await this.dataService.presentSuccessAlert('Registration Submitted');
-        await this.router.navigateByUrl('my-events');
+        this.location.back();
       }, (er: HttpErrorResponse) => {
         this.dataService.handleError(er);
       });
