@@ -1,0 +1,11 @@
+:host-context(.md) {
+  #scan-qr-fab {
+    bottom: 28px;
+  }
+}
+
+:host-context(.ios) {
+  #scan-qr-fab {
+    bottom: 25px;
+  }
+}
