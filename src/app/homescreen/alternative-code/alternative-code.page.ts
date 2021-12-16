@@ -14,16 +14,21 @@ import {Router} from "@angular/router";
 })
 export class AlternativeCodePage implements OnInit {
 
+  attendance_code!: string;
+
   constructor(private dataService: DataService,
               private userService: UserService,
               private router: Router) { }
 
   ngOnInit() {
+
   }
 
   attendanceForm = new FormGroup({
     attendance_code: new FormControl('', [Validators.required, Validators.email]),
   });
+
+  get attendanceCode(){return this.attendanceForm.controls['attendance_code'].value; }
 
   getHttpOptions(){
     const trimmedHeader=this.userService.getAuthHeader().split(':');
@@ -37,7 +42,11 @@ export class AlternativeCodePage implements OnInit {
     return httpOptions;
   }
 
-  passAttendance(body: string){
+  passAttendance(){
+
+    const body = {
+      attendance_code: this.attendanceCode
+    }
 
     const attendanceParams=new RequestParams();
     attendanceParams.EndPoint='event/attendance';
